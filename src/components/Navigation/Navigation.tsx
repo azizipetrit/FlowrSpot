@@ -9,6 +9,7 @@ import MenuProfileHolder from "../../assets/menu_profile_holder.svg";
 import { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/userSlice";
+import ProfileModal from "../Modals/ProfileModal";
 
 const Navigation = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -71,10 +72,10 @@ const Navigation = () => {
           {user.isLoggedIn ? (
             <div className="flex items-center space-x-4 ml-12">
               <span className="text-[#949EA0] font-medium text-[14px] leading-[14px] tracking-[0]">
-                {user.name}
+                {`${user.firstName} ${user.lastName}`}
               </span>
               <img
-                src={user.profileImage ?? MenuProfileHolder}
+                src={user.pictureUrl ?? MenuProfileHolder}
                 alt="Profile"
                 className="w-8 h-8 rounded-full cursor-pointer"
                 onClick={() => setDropdownVisible(!dropdownVisible)}
@@ -82,6 +83,12 @@ const Navigation = () => {
               <div ref={dropdownRef}>
                 {dropdownVisible && (
                   <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
+                    <button
+                      className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      onClick={() => showModal(<ProfileModal />)}
+                    >
+                      Profile
+                    </button>
                     <button
                       className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       onClick={handleLogout}
