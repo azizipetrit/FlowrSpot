@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import ProfileHolder from "@/assets/profile-holder.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "@/contexts/ModalContext";
 import { AppDispatch, RootState } from "@/store";
 import { fetchUserInfo, logout } from "@/store/userSlice";
+import CloseIcon from "@/assets/CloseIcon.svg";
 
 const ProfileModal = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -20,6 +21,10 @@ const ProfileModal = () => {
     }
   };
 
+  const handleCloseClick = () => {
+    hideModal();
+  };
+
   const handleLogout = () => {
     dispatch(logout());
     hideModal();
@@ -30,7 +35,10 @@ const ProfileModal = () => {
       className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50"
       onClick={handleOverlayClick}
     >
-      <section className="bg-[#FFFFFF] grid place-items-start h-auto w-[440px] p-6 rounded-[3.2px] shadow-[0px 15px 30px 0px #0000000D]">
+      <section className="relative bg-[#FFFFFF] grid place-items-start h-auto w-[440px] p-6 rounded-[3.2px] shadow-[0px 15px 30px 0px #0000000D]">
+        <button onClick={handleCloseClick} className="absolute top-4 right-4">
+          <img src={CloseIcon} alt="Close" />
+        </button>
         <div className="max-w-[400px] w-full text-[#334144]">
           <div className="flex items-center">
             <img
