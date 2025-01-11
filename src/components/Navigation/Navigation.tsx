@@ -13,6 +13,7 @@ import ProfileModal from "../Modals/ProfileModal";
 
 const Navigation = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
   const user = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
   const { showModal } = useModal();
@@ -43,6 +44,17 @@ const Navigation = () => {
     setDropdownVisible(false);
   }, [user.isLoggedIn]);
 
+  const toggleMobileMenu = () => {
+    setMobileMenuVisible(!mobileMenuVisible);
+  };
+
+  const menuItems = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
+    { name: "Profile", path: "/profile" },
+  ];
+
   return (
     <header className="fixed w-full z-10 bg-white shadow-sm !h-20">
       <nav className="flex items-center justify-between mx-auto px-6 h-full">
@@ -52,21 +64,13 @@ const Navigation = () => {
 
         <div className="hidden lg:flex items-center">
           <ul className="flex items-center space-x-10 text-[#949EA0] font-medium text-[14px] leading-[14px] tracking-[0]">
-            <li>
-              <Link to="/flowers" className="hover:text-[#EAA79E]">
-                Flowers
-              </Link>
-            </li>
-            <li>
-              <Link to="/sightings" className="hover:text-[#EAA79E]">
-                Latest Sightings
-              </Link>
-            </li>
-            <li>
-              <Link to="/favorites" className="hover:text-[#EAA79E]">
-                Favorites
-              </Link>
-            </li>
+            {menuItems.map((item) => (
+              <li key={item.name}>
+                <Link to={item.path} className="hover:text-[#EAA79E]">
+                  {item.name}
+                </Link>
+              </li>
+            ))}
           </ul>
 
           {user.isLoggedIn ? (
@@ -123,6 +127,7 @@ const Navigation = () => {
         <button
           className="block lg:hidden text-[#949EA0]"
           aria-label="Toggle navigation"
+          onClick={toggleMobileMenu}
         >
           <svg
             width="24"
@@ -137,6 +142,61 @@ const Navigation = () => {
           </svg>
         </button>
       </nav>
+      {mobileMenuVisible && (
+        <div className="lg:hidden bg-white shadow-md">
+          <ul className="flex flex-col items-center space-y-4 py-4">
+            {menuItems.map((item) => (
+              <li key={item.name}>
+                <Link to={item.path} className="hover:text-[#EAA79E]">
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+            {user.isLoggedIn ? (
+              <>
+                <li className="text-[#949EA0] font-medium text-[14px] leading-[14px] tracking-[0]">
+                  {`${user.firstName} ${user.lastName}`}
+                </li>
+                <li>
+                  <button
+                    className="text-[#E19184]"
+                    onClick={() => showModal(<ProfileModal />)}
+                  >
+                    Profile
+                  </button>
+                </li>
+                <li>
+                  <button className="text-[#E19184]" onClick={handleLogout}>
+                    Logout
+                  </button>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <button
+                    className="text-[#E19184]"
+                    onClick={() => showModal(<LoginModal />)}
+                  >
+                    Login
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="px-6 py-2 rounded-full bg-gradient-to-l from-[#ECBCB3] to-[#EAA79E] text-white font-medium shadow-md"
+                    onClick={() => showModal(<SignupModal />)}
+                    style={{
+                      boxShadow: "rgba(234, 168, 159, 0.2) 0px 15px 20px",
+                    }}
+                  >
+                    Create Account
+                  </button>
+                </li>
+              </>
+            )}
+          </ul>
+        </div>
+      )}
     </header>
   );
 };
