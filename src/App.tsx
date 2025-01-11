@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navigation from "./components/Navigation/Navigation";
-import HomePage from "./pages/HomePage";
-import SignupModal from "./components/Modals/SignupModal";
-import ProfileModal from "./components/Modals/ProfileModal";
-import { ModalProvider } from "./contexts/ModalContext";
+import Navigation from "@/components/Navigation/Navigation";
+import HomePage from "@/pages/HomePage";
+import SignupModal from "@/components/Modals/SignupModal";
+import ProfileModal from "@/components/Modals/ProfileModal";
+import { ModalProvider } from "@/contexts/ModalContext";
 
 function App() {
   return (
