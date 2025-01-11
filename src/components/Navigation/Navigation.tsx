@@ -49,10 +49,9 @@ const Navigation = () => {
   };
 
   const menuItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" },
-    { name: "Profile", path: "/profile" },
+    { name: "Flowers", path: "/flowers" },
+    { name: "Latest Sightings", path: "/sightings" },
+    { name: "favorites", path: "/favorites" },
   ];
 
   return (
