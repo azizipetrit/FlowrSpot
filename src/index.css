@@ -32,14 +32,9 @@ body {
   display: block;
   width: 100%;
   padding: 0.5rem;
-  background: #646cff;
   color: white;
   border: none;
   cursor: pointer;
-}
-
-.modal button:hover {
-  background: #535bf2;
 }
 
 .font-playfair {

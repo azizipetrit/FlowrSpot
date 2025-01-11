@@ -19,16 +19,19 @@ const LoginSuccessModal = () => {
       <p>You have successfully logged into FlowrSpot!</p>
       <div className="flex items-center space-x-4">
         <button
-          className="bg-gradient-to-l from-[#ECBCB3] to-[#EAA79E] font-[500] text-[#FFFFFF]"
+          className="px-6 py-2 rounded-full bg-gradient-to-l from-[#ECBCB3] to-[#EAA79E] text-white font-medium shadow-md"
           onClick={handleOkClick}
+          style={{
+            boxShadow: "rgba(234, 168, 159, 0.2) 0px 15px 20px",
+          }}
         >
-          OK
+          Ok
         </button>
         <button
-          className="bg-gradient-to-l from-[#ECBCB3] to-[#EAA79E] font-[500] text-[#FFFFFF]"
+          className="px-6 py-2 rounded-full bg-gradient-to-l from-[#ECBCB3] to-[#EAA79E] text-white font-medium shadow-md"
           onClick={handleProfileClick}
         >
-          PROFILE
+          Profile
         </button>
       </div>
     </div>
