@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import api from "../../utils/api";
 import { useModal } from "../../contexts/ModalContext";
 import SignupSuccessModal from "./SignupSuccessModal";
+import CloseIcon from "../../assets/CloseIcon.svg";
 
 const SignupModal = () => {
   const { hideModal, showModal } = useModal();
@@ -45,12 +46,19 @@ const SignupModal = () => {
     }
   };
 
+  const handleCloseClick = () => {
+    hideModal();
+  };
+
   return (
     <div
       className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50"
       onClick={handleOverlayClick}
     >
-      <section className="bg-[#FFFFFF] [&_button]:rounded-[3.2px] grid place-items-start justify-center h-[470px] w-[440px] rounded-[3.2px] shadow-[0px 15px 30px 0px #0000000D]">
+      <section className="relative bg-[#FFFFFF] [&_button]:rounded-[3.2px] grid place-items-start justify-center h-[470px] w-[440px] rounded-[3.2px] shadow-[0px 15px 30px 0px #0000000D]">
+        <button onClick={handleCloseClick} className="absolute top-4 right-4">
+          <img src={CloseIcon} alt="Close" />
+        </button>
         <div className="max-w-[400px] m-[5px] text-[#334144]">
           <h2 className="m-[30px] text-center text-[20px] leading-none block h-[20px] font-[500] text-[#334144]">
             Create Account
