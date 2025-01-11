@@ -1,4 +1,4 @@
-import FlowerList from "../components/FlowerList/FlowerList";
+import FlowerList from "@/components/FlowerList/FlowerList";
 
 const HomePage = () => {
   return (

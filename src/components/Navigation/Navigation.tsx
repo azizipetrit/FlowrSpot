@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store";
-import Logo from "../../assets/Logo.svg";
-import LoginModal from "../Modals/LoginModal";
-import SignupModal from "../Modals/SignupModal";
-import { useModal } from "../../contexts/ModalContext";
-import MenuProfileHolder from "../../assets/menu_profile_holder.svg";
+import Logo from "@/assets/Logo.svg";
+import MenuProfileHolder from "@/assets/menu_profile_holder.svg";
 import { useState, useEffect, useRef } from "react";
+import { RootState } from "@/store";
 import { useDispatch } from "react-redux";
-import { logout } from "../../store/userSlice";
-import ProfileModal from "../Modals/ProfileModal";
+import { useModal } from "@/contexts/ModalContext";
+import { logout } from "@/store/userSlice";
+import LoginModal from "@/components/Modals/LoginModal";
+import SignupModal from "@/components/Modals/SignupModal";
+import ProfileModal from "@/components/Modals/ProfileModal";
 
 const Navigation = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -51,7 +51,7 @@ const Navigation = () => {
   const menuItems = [
     { name: "Flowers", path: "/flowers" },
     { name: "Latest Sightings", path: "/sightings" },
-    { name: "favorites", path: "/favorites" },
+    { name: "Favorites", path: "/favorites" },
   ];
 
   return (

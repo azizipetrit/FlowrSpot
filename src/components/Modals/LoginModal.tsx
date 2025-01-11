@@ -2,12 +2,12 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../store";
-import api from "../../utils/api";
-import { login, fetchUserInfo } from "../../store/userSlice";
-import { useModal } from "../../contexts/ModalContext";
-import LoginSuccessModal from "./LoginSuccessModal";
-import CloseIcon from "../../assets/CloseIcon.svg";
+import { useModal } from "@/contexts/ModalContext";
+import LoginSuccessModal from "@/components/Modals/LoginSuccessModal";
+import { AppDispatch } from "@/store";
+import { fetchUserInfo, login } from "@/store/userSlice";
+import api from "@/utils/api";
+import CloseIcon from "@/assets/CloseIcon.svg";
 
 const LoginModal = () => {
   const dispatch = useDispatch<AppDispatch>();

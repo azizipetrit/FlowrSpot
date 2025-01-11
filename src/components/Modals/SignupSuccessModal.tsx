@@ -1,6 +1,6 @@
-import LoginModal from "./LoginModal";
-import { useModal } from "../../contexts/ModalContext";
-import CloseIcon from "../../assets/CloseIcon.svg";
+import LoginModal from "@/components/Modals/LoginModal";
+import { useModal } from "@/contexts/ModalContext";
+import CloseIcon from "@/assets/CloseIcon.svg";
 
 const SignupSuccessModal = () => {
   const { hideModal, showModal } = useModal();

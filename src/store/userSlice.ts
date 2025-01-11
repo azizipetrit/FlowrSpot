@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
-import api from "../utils/api";
+import api from "@/utils/api";
 import { RootState } from ".";
 
-interface UserState {
+export interface UserState {
   isLoggedIn: boolean;
   id: string;
   email: string;
@@ -89,4 +89,5 @@ const userSlice = createSlice({
 });
 
 export const { login, logout } = userSlice.actions;
+
 export default userSlice.reducer;

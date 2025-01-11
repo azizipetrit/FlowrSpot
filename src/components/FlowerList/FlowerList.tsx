@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import api from "../../utils/api";
-import Hero from "../hero/Hero";
-import FallbackImage from "../../assets/pl-image.svg";
-import StarIcon from "../../assets/star.svg";
+import api from "@/utils/api";
+import Hero from "@/components/hero/Hero";
+import FallbackImage from "@/assets/pl-image.svg";
+import StarIcon from "@/assets/star.svg";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store";
+import { RootState } from "@/store";
 
 type Flower = {
   id: string;

@@ -1,5 +1,5 @@
-import HeroImage from "../../assets/pl-hero.svg";
-import SearchIcon from "../../assets/search.svg";
+import HeroImage from "@/assets/pl-hero.svg";
+import SearchIcon from "@/assets/search.svg";
 
 const Hero = () => {
   return (

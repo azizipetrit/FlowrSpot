@@ -1,10 +1,10 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import api from "../../utils/api";
-import { useModal } from "../../contexts/ModalContext";
-import SignupSuccessModal from "./SignupSuccessModal";
-import CloseIcon from "../../assets/CloseIcon.svg";
+import { useModal } from "@/contexts/ModalContext";
+import SignupSuccessModal from "@/components/Modals/SignupSuccessModal";
+import api from "@/utils/api";
+import CloseIcon from "@/assets/CloseIcon.svg";
 
 const SignupModal = () => {
   const { hideModal, showModal } = useModal();

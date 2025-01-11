@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import ProfileHolder from "../../assets/profile-holder.svg";
+import ProfileHolder from "@/assets/profile-holder.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { useModal } from "../../contexts/ModalContext";
-import { AppDispatch, RootState } from "../../store";
-import { fetchUserInfo, logout } from "../../store/userSlice";
+import { useModal } from "@/contexts/ModalContext";
+import { AppDispatch, RootState } from "@/store";
+import { fetchUserInfo, logout } from "@/store/userSlice";
 
 const ProfileModal = () => {
   const dispatch: AppDispatch = useDispatch();
