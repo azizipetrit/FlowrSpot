@@ -35,7 +35,7 @@ FlowrSpot is a web application built with React, TypeScript, and Vite. It allows
 1. Clone the repository:
 
 ```sh
-git clone https://github.com/your-username/flowrspot.git
+git clone https://github.com/azizipetrit/flowrspot.git
 cd flowrspot
 ```
 
