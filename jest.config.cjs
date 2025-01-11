@@ -9,7 +9,9 @@ module.exports = {
     },
   },
   moduleNameMapper: {
-    "\\.(css|less|scss|svg)$": "identity-obj-proxy",
+    "\\.(css|less|scss)$": "identity-obj-proxy",
+    "\\.svg$": "<rootDir>/__mocks__/svgMock.js",
+    "^@/(.*)$": "<rootDir>/src/$1",
   },
   setupFilesAfterEnv: ["<rootDir>/setupTests.ts"],
 };
